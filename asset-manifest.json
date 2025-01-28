@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gestione-vini-v2/static/css/main.e6c13ad2.css",
-    "main.js": "/gestione-vini-v2/static/js/main.805b576e.js",
+    "main.js": "/gestione-vini-v2/static/js/main.ca685950.js",
     "static/js/453.bb9a189a.chunk.js": "/gestione-vini-v2/static/js/453.bb9a189a.chunk.js",
     "index.html": "/gestione-vini-v2/index.html",
     "main.e6c13ad2.css.map": "/gestione-vini-v2/static/css/main.e6c13ad2.css.map",
-    "main.805b576e.js.map": "/gestione-vini-v2/static/js/main.805b576e.js.map",
+    "main.ca685950.js.map": "/gestione-vini-v2/static/js/main.ca685950.js.map",
     "453.bb9a189a.chunk.js.map": "/gestione-vini-v2/static/js/453.bb9a189a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.805b576e.js"
+    "static/js/main.ca685950.js"
   ]
 }
