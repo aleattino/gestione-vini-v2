@@ -84,29 +84,91 @@ function SearchBar({ wines, setFilteredWines, setPage }) {
   };
 
   const glassStyle = {
-    backgroundColor: theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(18, 18, 18, 0.8)',
-    backdropFilter: 'blur(10px)',
-    borderRadius: '16px',
-    border: `1px solid ${theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.1)'}`,
+    backgroundColor: theme.palette.mode === 'light' 
+      ? 'rgba(255, 255, 255, 0.7)'
+      : 'rgba(18, 18, 18, 0.7)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    borderRadius: '20px',
+    border: `1px solid ${theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.1)'}`,
     boxShadow: theme.palette.mode === 'light' 
-      ? '0 4px 30px rgba(0, 0, 0, 0.1)'
-      : '0 4px 30px rgba(0, 0, 0, 0.3)',
+      ? '0 8px 32px rgba(0, 0, 0, 0.1)'
+      : '0 8px 32px rgba(0, 0, 0, 0.3)',
+    transition: 'all 0.3s ease-in-out'
   };
 
   const inputStyle = {
     '& .MuiOutlinedInput-root': {
-      backgroundColor: theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(18, 18, 18, 0.6)',
-      backdropFilter: 'blur(5px)',
+      backgroundColor: theme.palette.mode === 'light' 
+        ? 'rgba(255, 255, 255, 0.5)'
+        : 'rgba(255, 255, 255, 0.05)',
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
       borderRadius: '12px',
+      transition: 'all 0.2s ease-in-out',
       '& fieldset': {
-        borderColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)',
+        borderColor: theme.palette.mode === 'light' 
+          ? 'rgba(0, 0, 0, 0.1)'
+          : 'rgba(255, 255, 255, 0.1)',
+        transition: 'all 0.2s ease-in-out'
       },
-      '&:hover fieldset': {
-        borderColor: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)',
+      '&:hover': {
+        backgroundColor: theme.palette.mode === 'light' 
+          ? 'rgba(255, 255, 255, 0.7)'
+          : 'rgba(255, 255, 255, 0.1)',
+        transform: 'translateY(-1px)',
+        '& fieldset': {
+          borderColor: theme.palette.mode === 'light' 
+            ? 'rgba(0, 0, 0, 0.2)'
+            : 'rgba(255, 255, 255, 0.2)'
+        }
       },
-      '&.Mui-focused fieldset': {
-        borderColor: theme.palette.mode === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
+      '&.Mui-focused': {
+        backgroundColor: theme.palette.mode === 'light' 
+          ? 'rgba(255, 255, 255, 0.8)'
+          : 'rgba(255, 255, 255, 0.15)',
+        transform: 'translateY(-1px)',
+        boxShadow: theme.palette.mode === 'light' 
+          ? '0 4px 12px rgba(0, 0, 0, 0.1)'
+          : '0 4px 12px rgba(0, 0, 0, 0.3)',
+        '& fieldset': {
+          borderColor: theme.palette.primary.main,
+          borderWidth: '2px'
+        }
       }
+    },
+    '& .MuiInputLabel-root': {
+      color: theme.palette.mode === 'light' 
+        ? 'rgba(0, 0, 0, 0.7)'
+        : 'rgba(255, 255, 255, 0.7)',
+      fontWeight: 500
+    },
+    '& .MuiInputBase-input': {
+      fontWeight: 500
+    }
+  };
+
+  const buttonStyle = {
+    height: '100%',
+    backgroundColor: theme.palette.mode === 'light' 
+      ? 'rgba(255, 255, 255, 0.5)'
+      : 'rgba(255, 255, 255, 0.05)',
+    backdropFilter: 'blur(10px)',
+    WebkitBackdropFilter: 'blur(10px)',
+    border: `1px solid ${theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.1)'}`,
+    borderRadius: '12px',
+    color: theme.palette.text.primary,
+    fontWeight: 600,
+    letterSpacing: '-0.01em',
+    transition: 'all 0.2s ease-in-out',
+    '&:hover': {
+      backgroundColor: theme.palette.mode === 'light' 
+        ? 'rgba(255, 255, 255, 0.7)'
+        : 'rgba(255, 255, 255, 0.1)',
+      transform: 'translateY(-1px)',
+      boxShadow: theme.palette.mode === 'light' 
+        ? '0 4px 12px rgba(0, 0, 0, 0.1)'
+        : '0 4px 12px rgba(0, 0, 0, 0.3)'
     }
   };
 
@@ -173,31 +235,30 @@ function SearchBar({ wines, setFilteredWines, setPage }) {
                     handleFilter(search, e.target.checked);
                   }}
                   sx={{
-                    color: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)',
+                    color: theme.palette.mode === 'light' 
+                      ? 'rgba(0, 0, 0, 0.6)'
+                      : 'rgba(255, 255, 255, 0.6)',
                     '&.Mui-checked': {
-                      color: theme.palette.primary.main,
-                    }
+                      color: theme.palette.primary.main
+                    },
+                    transition: 'all 0.2s ease-in-out'
                   }}
                 />
               }
               label="Solo vegani"
               sx={{
-                color: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.87)' : 'rgba(255, 255, 255, 0.87)'
+                color: theme.palette.text.primary,
+                '& .MuiFormControlLabel-label': {
+                  fontWeight: 500
+                }
               }}
             />
           </Grid>
           <Grid item xs={12} md={2}>
             <Button 
-              variant="contained" 
               fullWidth
               onClick={() => setOpenAdvanced(true)}
-              sx={{
-                ...glassStyle,
-                height: '45px',
-                '&:hover': {
-                  backgroundColor: theme.palette.mode === 'light' ? 'rgba(255, 255, 255, 0.9)' : 'rgba(18, 18, 18, 0.9)',
-                }
-              }}
+              sx={buttonStyle}
             >
               Ricerca avanzata
             </Button>
@@ -214,7 +275,13 @@ function SearchBar({ wines, setFilteredWines, setPage }) {
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>Ricerca avanzata</DialogTitle>
+        <DialogTitle sx={{ 
+          fontWeight: 600,
+          letterSpacing: '-0.02em',
+          color: theme.palette.text.primary
+        }}>
+          Ricerca avanzata
+        </DialogTitle>
         <DialogContent>
           <Grid container spacing={3} sx={{ pt: 1 }}>
             <Grid item xs={12}>
@@ -258,32 +325,44 @@ function SearchBar({ wines, setFilteredWines, setPage }) {
                     checked={advancedFilters.vegan}
                     onChange={(e) => setAdvancedFilters({...advancedFilters, vegan: e.target.checked})}
                     sx={{
-                      color: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.6)',
+                      color: theme.palette.mode === 'light' 
+                        ? 'rgba(0, 0, 0, 0.6)'
+                        : 'rgba(255, 255, 255, 0.6)',
                       '&.Mui-checked': {
-                        color: theme.palette.primary.main,
+                        color: theme.palette.primary.main
                       }
                     }}
                   />
                 }
                 label="Solo vegani"
                 sx={{
-                  color: theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.87)' : 'rgba(255, 255, 255, 0.87)'
+                  color: theme.palette.text.primary,
+                  '& .MuiFormControlLabel-label': {
+                    fontWeight: 500
+                  }
                 }}
               />
             </Grid>
           </Grid>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={{ p: 3 }}>
           <Button 
             onClick={() => setOpenAdvanced(false)}
-            sx={{ ...glassStyle, px: 3 }}
+            sx={buttonStyle}
           >
             Annulla
           </Button>
           <Button 
             onClick={handleAdvancedSearch}
             variant="contained"
-            sx={{ ...glassStyle, px: 3 }}
+            sx={{
+              ...buttonStyle,
+              backgroundColor: theme.palette.primary.main,
+              color: '#fff',
+              '&:hover': {
+                backgroundColor: theme.palette.primary.dark
+              }
+            }}
           >
             Cerca
           </Button>
